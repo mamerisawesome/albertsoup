@@ -31,15 +31,15 @@ class SoupBowl:
         if not target:
             return
 
+        if target == 'tastysoup':
+            return self.soup
+
         cur = None
         if re.search(r'\#\w+', target):
             cur = self.soup.find(id=re.compile(target[1:]))
 
         elif re.search(r'\.\w+', target):
             cur = self.soup.find_all(class_=re.compile(target[1:]))
-
-        elif target == 'tastysoup':
-            cur = self.soup
 
         else:
             cur = self.soup.find_all(re.compile(target))
