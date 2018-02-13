@@ -1,6 +1,6 @@
 '''Main Function Runner'''
 
-from core.albertbowl import SoupBowl
+from albertbowl import SoupBowl
 
 # test
 bowl = SoupBowl()

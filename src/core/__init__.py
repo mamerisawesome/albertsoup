@@ -1,1 +1,0 @@
-'''Init on module import'''
