@@ -1,3 +1,6 @@
-dist
-MANIFEST
 .vscode
+MANIFEST
+
+dist
+
+__pycache__

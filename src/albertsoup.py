@@ -1,24 +1,11 @@
-from urllib.request import urlopen
-from bs4 import BeautifulSoup
+'''Main Function Runner'''
 
-# Setup
-target = 'http://www.bloomberg.com/quote/SPX:IND'
-page = urlopen(target)
-soup = BeautifulSoup(page, 'html.parser')
+from core.albertbowl import SoupBowl
 
-# Extract
-name_container = soup.find('h1', attrs={'class': 'name'})
-name = name_container.text.strip()
+# test
+bowl = SoupBowl()
+bowl.serve('https://bitcointalk.org/index.php?topic=2889704.0;all')
 
-price_container = soup.find('div', attrs={'class':'price'})
-price = price_container.text
-
-import csv
-from datetime import datetime
-
-with open('index.csv', 'a') as csv_file:
-    writer = csv.writer(csv_file)
-    writer.writerow([name, price, datetime.now()])
-
-# @TODO enable modularity
-# @TODO make a general case for function
+bowl.get('#bodyarea')
+bowl.get('.smalltext')
+bowl.get('tastysoup')
