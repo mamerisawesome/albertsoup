@@ -26,7 +26,7 @@ class SoupBowl:
 
         return self
 
-    def get(self, target=''):
+    def scoop(self, target=''):
         '''Gets the target from an extracted HTML document'''
         if not target:
             return
