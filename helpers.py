@@ -2,10 +2,13 @@
 import urllib.request as request
 from bs4 import BeautifulSoup
 
-def soupify(url):
+def soupify(url=None, html=None):
     '''Init soup dish'''
-    req = request.Request(url, headers={'User-Agent' : "Magic Browser"})
-    page = request.urlopen(req)
+    if url:
+        req = request.Request(url, headers={'User-Agent' : "Magic Browser"})
+        page = request.urlopen(req)
+    elif html:
+        page = html
 
     return BeautifulSoup(page, 'html.parser')
 
