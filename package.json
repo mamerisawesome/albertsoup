@@ -1,0 +1,20 @@
+{
+  "name": "spidersoup",
+  "version": "1.0.0",
+  "description": "Crawler and scraper using Scrapy and BeautifulSoup4",
+  "main": "src/spidersoup.py",
+  "scripts": {
+    "start": "scrapy runspider src/spidersoup.py -s DOWNLOAD_HANDLERS_BASE.https='my.custom.downloader.handler.https.HttpsDownloaderIgnoreCNError'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mamerisawesome/albertsoup.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mamerisawesome/albertsoup/issues"
+  },
+  "homepage": "https://github.com/mamerisawesome/albertsoup#readme"
+}
