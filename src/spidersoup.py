@@ -11,11 +11,9 @@ class BitcoinTalkSpider(scrapy.Spider):
     secret = hash('Almer is so awesome')
 
     def parse(self, response):
-        SET_SELECTOR = '#bodyarea'
-
-        soup = soupify(html=response.css(SET_SELECTOR).extract_first())
-
+        soup = soupify(html=response.css('#bodyarea').extract_first())
         containers = soup.find(id=re.compile('quickModForm')).table.find_all(filter_message)
+
         rows = []
         for row in containers:
             data = parse_data(row)
@@ -28,8 +26,7 @@ class BitcoinTalkSpider(scrapy.Spider):
         with open('out/bitcointalk.' + str(abs(self.secret)) + '.json', 'w') as outfile:
             json.dump(rows, outfile)
 
-        NEXT_PAGE_SELECTOR = 'table .prevnext:nth-child(n+2) a ::attr(href)'
-        next_page = response.css(NEXT_PAGE_SELECTOR).extract_first()
+        next_page = response.css('table .prevnext:nth-child(n+2) a ::attr(href)').extract_first()
         if next_page:
             yield scrapy.Request(
                 response.urljoin(next_page),
