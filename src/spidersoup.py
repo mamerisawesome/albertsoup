@@ -1,4 +1,4 @@
-'''Wrapper for BeautifulSoup (Satisfy my needs senpai)'''
+'''Crawler'''
 import re
 import json
 import scrapy
